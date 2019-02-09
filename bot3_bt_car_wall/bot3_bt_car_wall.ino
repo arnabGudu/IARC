@@ -70,22 +70,24 @@ void loop()
   }
   if (flag == 1)
   {
+    forward();
+    
     if (Ping(RIGHT) > 15)
     {
       right();
-      milis = millis();
-      while (millis() - milis > 1000)
-        Print();
-      stop();
+//      milis = millis();
+//      while (millis() - milis > 1000)
+//        Print();
+      delay(1000);
     }
 
     if (Ping(FRONT) < 15)
     {
       left();
-      milis = millis();
-      while (millis() - milis > 1000)
-        Print();
-      stop();
+//      milis = millis();
+//      while (millis() - milis > 1000)
+//        Print();
+      delay(1000);
     }
   }
   Print();
