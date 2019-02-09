@@ -18,6 +18,7 @@ void condtn();
 int sp = 100;
 int dist[2] = {0, 0};
 int kp = 5, kd = 2, del = 800;
+int lastError = 0;
 
 void setup() {
   Serial.begin(9600);
@@ -93,11 +94,15 @@ void loop()
   //    //pid(RIGHT);
   //  }
 
+  if (flag == 2)
+    Print();
+
   switch (flag)
   {
-    case 1: condtn(FRONT);  condtn(RIGHT);  break;
-    case 2: condtn(FRONT);  pid(RIGHT);     break;
+    case 1: 
+    case 4: condtn(FRONT);  condtn(RIGHT);  break;
+    case 2:
+    case 5: condtn(FRONT);  pid(RIGHT);     break;
   }
-
-  Print();
+  Serial.println();
 }

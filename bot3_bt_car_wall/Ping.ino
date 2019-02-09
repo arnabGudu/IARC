@@ -10,5 +10,6 @@ int Ping(int pin)
   digitalWrite(trigPin[pin], LOW);
 
   dist[pin] = pulseIn(echoPin[pin], HIGH) / 29 / 2;
+  dist[pin] = constrain(dist[pin], 0, 25);
   return dist[pin];
 }
