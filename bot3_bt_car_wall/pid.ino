@@ -1,10 +1,11 @@
 void pid(int pin)
 {
-  int error = Ping(pin) - 10;
-  int balance = error * kp + (error - lastError) * kd;
-  delay(100);
+  float error = Ping() - 10;
+  float prop = error * kp;
+  float diff = (error - lastError) * kd;
+  float balance = prop + diff;
   lastError = error;
-  
+
   analogWrite(6, constrain(60 - balance, 0, 100));
   analogWrite(5, constrain(60 + balance, 0, 100));
 
@@ -13,13 +14,15 @@ void pid(int pin)
   digitalWrite(10, LOW);
   digitalWrite(11, HIGH);
 
-  if(flag == 5)
-  {  
-    Serial.print("  error: ");
-    Serial.print(error);
-    Serial.print("  laEr: ");
-    Serial.print(lastError);
+  if (flag == 5)
+  {
+    Serial.print("prop: ");
+    Serial.print(prop);
+    Serial.print("  diff: ");
+    Serial.print(diff);
     Serial.print("  bal: ");
     Serial.print(balance);
+    Serial.print("  laEr: ");
+    Serial.println(lastError);
   }
 }

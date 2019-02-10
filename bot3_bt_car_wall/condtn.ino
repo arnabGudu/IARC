@@ -2,7 +2,7 @@ void condtn(int pin)
 {
   //forward();
 
-  if (Ping(RIGHT) > 15 && pin == RIGHT)
+  if (Ping(RIGHT) > minDist && pin == RIGHT)
   {
     right();
     //      milis = millis();
@@ -11,7 +11,7 @@ void condtn(int pin)
     delay(del);
   }
 
-  if (Ping(FRONT) < 15 && pin == FRONT)
+  if (Ping(FRONT) < minDist && pin == FRONT)
   {
     left();
     //      milis = millis();

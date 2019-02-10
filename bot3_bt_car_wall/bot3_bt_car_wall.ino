@@ -17,8 +17,10 @@ void condtn();
 
 int sp = 100;
 int dist[2] = {0, 0};
-int kp = 5, kd = 2, del = 800;
-int lastError = 0;
+float kp = 5, kd = 2;
+int del = 800;
+int minDist = 15;
+float lastError = 0;
 
 void setup() {
   Serial.begin(9600);
@@ -63,29 +65,31 @@ void loop()
       //      case '9': sp = 200;   break;
       //      case 'q': sp = 210;   break;
 
-      case '1': flag = 1;   break;
-      case '2': flag = 2;   break;
-      case '3': flag = 3;   break;
-      case '4': flag = 4;   break;
-      case '5': flag = 5;   break;
-      case '6': flag = 6;   break;
-      case '7': flag = 7;   break;
+      case '1': flag = 5;   break;
+      case '2': kp += 0.5; break;
+      case '3': kp -= 0.5; break;
+      case '4': kd += 0.5; break;
+      case '5': kd -= 0.5; break;
+      case '6': minDist++; break;
+      case '7': minDist--; break;
       case '8': del += 100; break;
       case '9': del -= 100; break;
       case 'q': flag = 0;   break;
-
+      case 'a': sp += 50; break;
+      case 'b': sp -= 50; break;
+ 
       case 'W': digitalWrite(4, HIGH);  break;
       case 'w': digitalWrite(4, LOW);   break;
       case 'U': digitalWrite(7, HIGH);  break;
       case 'u': digitalWrite(7, LOW);   break;
 
-      //      case 'V': flag = 1;   break;
-      //      case 'v': flag = 0;   break;
+        //      case 'V': flag = 1;   break;
+        //      case 'v': flag = 0;   break;
 
-      case '=': kp++;  break;
-      case '-': kp--;  break;
-      case '+': kd++;  break;
-      case '_': kd--;  break;
+        //      case '=': kp++;  break;
+        //      case '-': kp--;  break;
+        //      case '+': kd++;  break;
+        //      case '_': kd--;  break;
     }
   }
   //  if (flag == 1)
@@ -99,7 +103,7 @@ void loop()
 
   switch (flag)
   {
-    case 1: 
+    case 1:
     case 4: condtn(FRONT);  condtn(RIGHT);  break;
     case 2:
     case 5: condtn(FRONT);  pid(RIGHT);     break;
