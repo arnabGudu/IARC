@@ -16,13 +16,12 @@ void pid(int pin)
 
   if (flag == 5)
   {
-    Serial.print("prop: ");
-    Serial.print(prop);
-    Serial.print("  diff: ");
-    Serial.print(diff);
-    Serial.print("  bal: ");
-    Serial.print(balance);
-    Serial.print("  laEr: ");
-    Serial.println(lastError);
+    Serial.print("P : ");
+    addZero(prop);
+    Serial.print(" D: ");
+    addZero(diff);
+    Serial.print(" PD: ");
+    addZero(balance);
+    Serial.println();
   }
 }

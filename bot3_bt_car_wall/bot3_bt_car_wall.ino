@@ -16,10 +16,9 @@ void pid(int);
 void condtn();
 
 int sp = 100;
-int dist[2] = {0, 0};
+int dist[2] = {15, 15};
 float kp = 5, kd = 2;
 int del = 800;
-int minDist = 15;
 float lastError = 0;
 
 void setup() {
@@ -65,20 +64,21 @@ void loop()
       //      case '9': sp = 200;   break;
       //      case 'q': sp = 210;   break;
 
-      case '0': flag = 2;   break;
-      case '1': flag = 5;   break;
-      case '2': kp += 0.5; break;
-      case '3': kp -= 0.5; break;
-      case '4': kd += 0.5; break;
-      case '5': kd -= 0.5; break;
-      case '6': minDist++; break;
-      case '7': minDist--; break;
-      case '8': del += 100; break;
-      case '9': del -= 100; break;
-      case 'q': flag = 0;   break;
-      case 'a': sp += 50; break;
-      case 'b': sp -= 50; break;
- 
+      case '0': flag = 2;     break;
+      case '1': flag = 5;     break;
+      case '2': kp += 0.5;    break;
+      case '3': kp -= 0.5;    break;
+      case '4': kd += 0.5;    break;
+      case '5': kd -= 0.5;    break;
+      case '6': dist[FRONT]++;break;
+      case '7': dist[FRONT]--;break;
+      case '8': del += 100;   break;
+      case '9': del -= 100;   break;
+      case 'a': sp += 10;     break;
+      case 'b': sp -= 10;     break;
+      case 'c': dist[RIGHT]++;break;
+      case 'd': dist[RIGHT]--;break;
+
       case 'W': digitalWrite(4, HIGH);  break;
       case 'w': digitalWrite(4, LOW);   break;
       case 'U': digitalWrite(7, HIGH);  break;
@@ -109,5 +109,4 @@ void loop()
     case 2:
     case 5: condtn(FRONT);  pid(RIGHT);     break;
   }
-  Serial.println();
 }
