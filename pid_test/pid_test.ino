@@ -37,12 +37,19 @@ void loop() {
   digitalWrite(10, LOW);
   digitalWrite(11, HIGH);
 
-  Serial.print("prop: ");
-  Serial.print(prop);
-  Serial.print("  diff: ");
-  Serial.print(diff);
-  Serial.print("  bal: ");
-  Serial.print(balance);
-  Serial.print("  laEr: ");
-  Serial.println(lastError);
+//  Serial.print("prop: ");
+//  Serial.print(prop);
+//  Serial.print("  diff: ");
+//  Serial.print(diff);
+//  Serial.print("  bal: ");
+//  Serial.print(balance);
+//  Serial.print("  laEr: ");
+//  Serial.println(lastError);
+
+   Serial.print(prop);
+   Serial.print(",");
+   Serial.print(diff);
+   Serial.print(",");
+   Serial.println(balance);
+   delay(200);
 }
