@@ -10,7 +10,7 @@ void fright();
 void bleft();
 void bright();
 void stop();
-int Ping(int);
+float Ping(int);
 void Print();
 void pid(int);
 void condtn();
