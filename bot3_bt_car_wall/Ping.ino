@@ -1,8 +1,8 @@
-int Ping(int pin)
+float Ping(int pin)
 {
   const int trigPin[2] = {A0, 13};
   const int echoPin[2] = {A1, 12};
-  float distn
+  float distn;
 
   digitalWrite(trigPin[pin], LOW);
   delayMicroseconds(2);
