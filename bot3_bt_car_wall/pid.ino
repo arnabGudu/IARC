@@ -1,6 +1,6 @@
 void pid(int pin)
 {
-  float error = Ping(pin) - 10;
+  float error = Ping(pin) - dist[RIGHT];
   float prop = error * kp;
   float diff = (error - lastError) * kd;
   float balance = prop + diff;

@@ -1,11 +1,5 @@
 void Print()
 {
-  //  Serial.print("flag: ");
-  //  Serial.print(flag);
-  //  Serial.print("  DistF: ");
-  //  Serial.print(dist[0]);
-  //  Serial.print("  DistR: ");
-  //  Serial.print(dist[1]);
   Serial.print(" kp: ");
   Serial.print(kp);
   Serial.print(" kd: ");
@@ -17,7 +11,11 @@ void Print()
   Serial.print(" del: ");
   Serial.print(del);
   Serial.print(" sp: ");
-  Serial.println(sp);
+  Serial.print(sp);
+  Serial.print(" distnF: ");
+  Serial.print(distn[FRONT]);
+  Serial.print(" distnR: ");
+  Serial.println(distn[RIGHT]);
 }
 
 void addZero(int i)
