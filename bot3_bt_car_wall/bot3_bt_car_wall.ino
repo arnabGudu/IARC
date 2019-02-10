@@ -65,6 +65,7 @@ void loop()
       //      case '9': sp = 200;   break;
       //      case 'q': sp = 210;   break;
 
+      case '0': flag = 2;   break;
       case '1': flag = 5;   break;
       case '2': kp += 0.5; break;
       case '3': kp -= 0.5; break;
