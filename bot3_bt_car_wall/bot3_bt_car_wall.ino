@@ -17,7 +17,7 @@ void condtn();
 
 int sp = 100;
 int dist[2] = {15, 15};
-float distn[2] = {0,0};
+float distn[2] = {0, 0};
 float kp = 5, kd = 2;
 int del = 800;
 float lastError = 0;
@@ -65,8 +65,8 @@ void loop()
       //      case '9': sp = 200;   break;
       //      case 'q': sp = 210;   break;
 
-      case '0': flag = 2;         break;
-      case '1': flag = 5;         break;
+      case '0': flag = 1;         break;
+      case '1': flag = 2;         break;
       case '2': kp += 0.5;        break;
       case '3': kp -= 0.5;        break;
       case '4': kd += 0.5;        break;
@@ -86,16 +86,6 @@ void loop()
       case 'U': digitalWrite(7, HIGH);  break;
       case 'u': digitalWrite(7, LOW);   break;
     }
-  }
-
-  if (flag == 2)
-    Print();
-
-  switch (flag)
-  {
-    case 1:
-    case 4: condtn(FRONT);  condtn(RIGHT);  break;
-    case 2:
-    case 5: condtn(FRONT);  pid(RIGHT);     break;
-  }
+  }    
+  follow();
 }
